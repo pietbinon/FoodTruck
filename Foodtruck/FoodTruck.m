@@ -7,6 +7,8 @@
 
 #import "FoodTruck.h"
 
+
+
 @interface FoodTruck ()
 
 @property (nonatomic, assign) float earnings;
@@ -15,9 +17,14 @@
 
 @end
 
+
+
+
+
+
 @implementation FoodTruck
 
--(instancetype)initWithName:(NSString *)pun andFoodType:(NSString *)foodType {
+- (instancetype) initWithName: (NSString *) pun andFoodType: (NSString *) foodType {
     self = [super init];
     if (self) {
         _name = pun;
@@ -27,19 +34,19 @@
 }
 
 
--(void)serve:(int)orders {
+- (void) serve: (int) orders {
     
-    double price = [self.delegate foodTruck:self priceForFood:self.foodType];
+    double price = [self.delegate foodTruck: self priceForFood: self.foodType];
     
-    NSLog(@"Welcome to %@", self.name);
-    NSLog(@"We serve %@ for $%0.2f", self.foodType, price);
-    NSLog(@" ");
+    NSLog (@"Welcome to %@", self.name);
+    NSLog (@"We serve %@ for $%0.2f", self.foodType, price);
+    NSLog (@" ");
     
     self.earnings += orders * price;
 }
 
--(void)cashOut {
-    NSLog(@"%@ earned %0.2f today!", self.name, self.earnings);
+- (void) cashOut {
+    NSLog (@"%@ earned %0.2f today!", self.name, self.earnings);
 }
 
 @end
